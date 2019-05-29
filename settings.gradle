@@ -1,1 +1,1 @@
-include ':app', ':lib_common', ':module_classify'
+include ':app', ':lib_common', ':module_sort'

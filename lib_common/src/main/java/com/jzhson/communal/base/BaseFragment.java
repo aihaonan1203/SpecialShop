@@ -1,8 +1,8 @@
 package com.jzhson.communal.base;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.support.annotation.IdRes;
-import android.support.v4.app.Fragment;
 
 import com.jzhson.communal.util.Utils;
 

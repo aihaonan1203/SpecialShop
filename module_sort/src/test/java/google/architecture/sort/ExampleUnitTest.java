@@ -1,4 +1,4 @@
-package google.architecture.girls;
+package google.architecture.sort;
 
 import org.junit.Test;
 

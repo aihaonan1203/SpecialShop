@@ -83,6 +83,8 @@ dependencies {
     api deps.arouter.runtime
     //logutils
     api deps.logutils
+
+    api 'q.rorbin:VerticalTabLayout:1.2.5'
 }
 
 uploadArchives {
