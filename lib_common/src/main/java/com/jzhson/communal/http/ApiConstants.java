@@ -6,6 +6,6 @@ package com.jzhson.communal.http;
 
 public class ApiConstants {
 
-    public static final String GankHost = "http://gank.io/";
+    public static final String GankHost = "http://152.136.67.251/api/";
 
 }

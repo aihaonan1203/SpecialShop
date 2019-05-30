@@ -47,15 +47,15 @@ public class ActivityMain extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-         mainBinding = DataBindingUtil.setContentView(ActivityMain.this, R.layout.activity_main);
+        mainBinding = DataBindingUtil.setContentView(ActivityMain.this, R.layout.activity_main);
 
-         mainBinding.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
-         mPager = mainBinding.containerPager;
-         mPager.setOffscreenPageLimit(3);
+        mainBinding.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
+        mPager = mainBinding.containerPager;
+        mPager.setOffscreenPageLimit(3);
 
         BaseFragment fragmentNews = (BaseFragment) ARouter.getInstance().build(ARouterPath.ClassifyFgt).navigation();
         BaseFragment fragmentGirls = (BaseFragment) ARouter.getInstance().build( ARouterPath.ClassifyFgt).navigation();
-        BaseFragment fragmentAbout = (BaseFragment) ARouter.getInstance().build( ARouterPath.ClassifyFgt).navigation();
+        BaseFragment fragmentAbout = (BaseFragment) ARouter.getInstance().build( ARouterPath.ClassifyFgt ).navigation();
 
         mFragments.add(fragmentNews);
         mFragments.add(fragmentGirls);

@@ -14,7 +14,7 @@ public class ActivitySort extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_girls);
-        getFragmentManager().beginTransaction().add(R.id.framelayout, new FragmentSort()).commit();
+        addFragment(new FragmentSort(),R.id.framelayout);
     }
 
     @Override

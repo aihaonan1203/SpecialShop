@@ -4,7 +4,7 @@
 
     <application>
 
-        <activity android:name="google.architecture.sort.ActivitySort"></activity>
+        <activity android:name="google.architecture.sort.ActivitySort"/>
 
     </application>
 

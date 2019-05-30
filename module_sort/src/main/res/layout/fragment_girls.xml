@@ -17,10 +17,31 @@
         app:tab_height="50dp"
         app:tab_mode="scrollable" />
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/vtbvp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    <com.jzhson.communal.widget.ReboundScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/sort_yuanjiao_white_5dp"
+            android:padding="10dp"
+            >
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_sort"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </RelativeLayout>
+
+
+
+    </com.jzhson.communal.widget.ReboundScrollView>
+
+
 
 
 </LinearLayout>

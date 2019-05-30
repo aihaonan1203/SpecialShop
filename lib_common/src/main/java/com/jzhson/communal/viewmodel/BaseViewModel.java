@@ -8,15 +8,10 @@ import android.databinding.ObservableField;
 import android.support.annotation.NonNull;
 
 import com.apkfuns.logutils.LogUtils;
-import com.jzhson.communal.http.repository.DynamicDataRepository;
-import com.jzhson.communal.util.SwitchSchedulers;
 
 import java.lang.reflect.ParameterizedType;
 
-
-import io.reactivex.Observer;
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.disposables.Disposable;
 
 /**
  * Created by dxx on 2017/11/20.
@@ -43,37 +38,6 @@ public class BaseViewModel<T> extends AndroidViewModel {
         LogUtils.d("=======BaseViewModel--onCreate=========");
     }
 
-    /**
-     *
-     * @param fullUrl
-     */
-    public void loadData( String fullUrl ){
-        DynamicDataRepository.getDynamicData(fullUrl, getTClass())
-                .compose(SwitchSchedulers.applySchedulers())
-                .subscribe(new Observer<T>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                        mDisposable.add(d);
-                    }
-
-                    @Override
-                    public void onNext(T value) {
-                        if(null != value){
-                            liveObservableData.setValue(value);
-                        }
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-
-                    @Override
-                    public void onComplete() {
-
-                    }
-                });
-    }
 
     /**
      * LiveData支持了lifecycle生命周期检测
