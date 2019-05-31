@@ -28,6 +28,16 @@ public class BaseApplication extends Application {
         return sInstance;
     }
 
+    private String token="eyJ1aWQiOjEsInRpbWVzdGFtcCI6MTU1ODg1NjM3MCwic2lnbiI6ImY2MDYzYjU0YWI5YTNjMjRlMzE2NGQxNmE3ZDQwOTI1In0";
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();

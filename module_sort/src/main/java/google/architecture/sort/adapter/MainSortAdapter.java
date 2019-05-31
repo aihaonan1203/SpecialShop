@@ -1,32 +1,73 @@
 package google.architecture.sort.adapter;
 
-import com.chad.library.adapter.base.BaseViewHolder;
-
-import google.architecture.sort.bean.AllSortBean;
 import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.BaseViewHolder;
+
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.jzhson.communal.util.ImageUtils;
+
 import java.util.List;
 
 import google.architecture.sort.R;
 import google.architecture.sort.bean.AllSortBean;
 
 
-public class MainSortAdapter extends BaseQuickAdapter<AllSortBean.CateBean,BaseViewHolder> {
+public class MainSortAdapter extends BaseAdapter{
 
+    private int layoutResId;
+    private List<AllSortBean.CateBean> data;
 
     public MainSortAdapter(int layoutResId, @Nullable List<AllSortBean.CateBean> data) {
-        super(layoutResId, data);
+        this.layoutResId=layoutResId;
+        this.data=data;
     }
 
     @Override
-    protected void convert(BaseViewHolder helper, AllSortBean.CateBean item) {
-        TextView tv_title = helper.getView(R.id.tv_title);
-        SimpleDraweeView image = helper.getView(R.id.iv_image);
-        tv_title.setText(item.getCat_name());
-        ImageUtils.loadNetImage(image,item.getCat_icon());
+    public int getCount() {
+        return data.size();
+    }
+
+    @Override
+    public Object getItem(int position) {
+        return null;
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return 0;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        MyViewHolder holder;
+        if (convertView==null){
+            convertView= LayoutInflater.from(parent.getContext()).inflate(layoutResId,parent,false);
+            holder=new MyViewHolder(convertView);
+            convertView.setTag(holder);
+        }else {
+            holder= (MyViewHolder) convertView.getTag();
+        }
+        holder.tv_title.setText(data.get(position).getCat_name());
+        ImageUtils.loadNetImage(holder.image,data.get(position).getCat_icon());
+        return convertView;
+    }
+
+    public void setNewData(List<AllSortBean.CateBean> newData) {
+        this.data = newData;
+        notifyDataSetChanged();
+    }
+
+    private class MyViewHolder{
+        private TextView tv_title;
+        private SimpleDraweeView image;
+
+        public MyViewHolder(View view) {
+            tv_title=view.findViewById(R.id.tv_title);
+            image=view.findViewById(R.id.iv_image);
+        }
     }
 }

@@ -11,7 +11,7 @@ import com.jzhson.communal.base.BaseApplication;
 
 public class SortApplication extends BaseApplication {
 
-    private static String token="eyJ1aWQiOjEsInRpbWVzdGFtcCI6MTU1ODg1NjM3MCwic2lnbiI6ImY2MDYzYjU0YWI5YTNjMjRlMzE2NGQxNmE3ZDQwOTI1In0";
+
 
     @Override
     public void onCreate() {
@@ -20,11 +20,4 @@ public class SortApplication extends BaseApplication {
         ARouter.init(this);
     }
 
-    public static String getToken() {
-        return token;
-    }
-
-    public static void setToken(String token) {
-        SortApplication.token = token;
-    }
 }

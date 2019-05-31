@@ -12,9 +12,9 @@ import android.util.Log;
 
 import com.apkfuns.logutils.LogUtils;
 
+import com.jzhson.communal.base.BaseApplication;
 import com.jzhson.communal.base.CommonBean;
 
-import debug.SortApplication;
 import google.architecture.sort.bean.AllSortBean;
 import google.architecture.sort.http.GankDataRepository;
 import com.jzhson.communal.util.NetUtils;
@@ -59,7 +59,7 @@ public class SortViewModel extends AndroidViewModel {
                 }
                 final MutableLiveData<CommonBean<AllSortBean>> applyData = new MutableLiveData<>();
 
-                GankDataRepository.getFuliDataRepository(SortApplication.getToken())
+                GankDataRepository.getFuliDataRepository(BaseApplication.getIns().getToken())
                 .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(new Observer<CommonBean<AllSortBean>>() {

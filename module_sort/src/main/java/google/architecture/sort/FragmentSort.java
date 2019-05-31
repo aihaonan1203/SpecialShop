@@ -1,9 +1,7 @@
 package google.architecture.sort;
 
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,14 +12,14 @@ import com.jzhson.communal.base.ARouterPath;
 import com.jzhson.communal.base.BaseFragment;
 import com.jzhson.communal.base.CommonBean;
 import com.jzhson.communal.util.UIUtils;
-import com.jzhson.communal.widget.FullyGridLayoutManager;
+import com.jzhson.communal.widget.MyGridViewNoScroll;
 
 import java.util.List;
 
 import google.architecture.sort.adapter.MainSortAdapter;
+import google.architecture.sort.bean.AllSortBean;
 import google.architecture.sort.mvp.contract.MainContract;
 import google.architecture.sort.mvp.presenter.MainPresenter;
-import google.architecture.sort.bean.AllSortBean;
 import q.rorbin.verticaltablayout.VerticalTabLayout;
 import q.rorbin.verticaltablayout.adapter.TabAdapter;
 import q.rorbin.verticaltablayout.widget.ITabView;
@@ -35,21 +33,20 @@ import q.rorbin.verticaltablayout.widget.TabView;
 public class FragmentSort extends BaseFragment implements MainContract.View {
 
     private VerticalTabLayout tablayout;
-    private RecyclerView rv_sort;
+    private MyGridViewNoScroll rv_sort;
     private int tabId = 0;
 
     private MainPresenter presenter;
     private MainSortAdapter rightAdapter;
-
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         ARouter.getInstance().inject(FragmentSort.this);
         View view = inflater.inflate(R.layout.fragment_girls, container, false);
@@ -137,7 +134,6 @@ public class FragmentSort extends BaseFragment implements MainContract.View {
     public void initRightAdapter(List<AllSortBean.CateBean> data) {
         if (rightAdapter==null){
             rightAdapter=new MainSortAdapter(R.layout.sort_main_right_item,data);
-            rv_sort.setLayoutManager(new FullyGridLayoutManager(mActivity,3));
             rv_sort.setAdapter(rightAdapter);
         }else {
             rightAdapter.setNewData(data);

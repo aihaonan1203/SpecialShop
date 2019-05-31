@@ -50,7 +50,7 @@ dependencies {
     // Support libraries
     api deps.support.app_compat
     api deps.support.v4
-    api deps.support.design
+    api 'com.android.support:design:28.0.0'
     api deps.support.cardview
     api deps.support.recyclerview
 

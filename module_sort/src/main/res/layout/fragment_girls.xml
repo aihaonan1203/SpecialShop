@@ -20,23 +20,29 @@
     <com.jzhson.communal.widget.ReboundScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:overScrollMode="never"
+        android:scrollbars="none"
         >
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/sort_yuanjiao_white_5dp"
-            android:padding="10dp"
+            android:orientation="vertical"
             >
 
-            <android.support.v7.widget.RecyclerView
+            <com.jzhson.communal.widget.MyGridViewNoScroll
                 android:id="@+id/rv_sort"
+                android:numColumns="3"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/sort_yuanjiao_white_5dp"
+                />
 
-        </RelativeLayout>
-
+        </LinearLayout>
 
 
     </com.jzhson.communal.widget.ReboundScrollView>
