@@ -11,21 +11,24 @@ package com.jzhson.communal.base;
 
 public class ARouterPath {
 
-    /**妹子列表Activity*/
-    public static final String Classify = "/module/ahn/Classify";
+    /**分类列表Activity*/
+    public static final String Classify = "/moduleSort/ahn/Classify";
+    /**分类列表Fragment*/
+    public static final String ClassifyFgt = "/AtySort/aty/ClassifyFgt";
 
-    /**妹子列表动态Activity*/
-    public static final String DynaGirlsListAty = "/girls/dynaty/list";
 
-    /**新闻列表Activity*/
-    public static final String NewsListAty = "/news/aty/list";
+    /**主页Activity*/
+    public static final String HomeAty = "/moduleHome/ahn/home";
+    /**主页Fragment*/
+    public static final String HomeFgt = "/AtyHome/aty/HomeFgt";
 
-    /**妹子列表Fragment*/
-    public static final String ClassifyFgt = "/girls/aty/fgt/ClassifyFgt";
+    /**发圈Activity*/
+    public static final String RangeAty = "/moduleRange/aty/range";
+    /**发圈Fragment*/
+    public static final String RangeFgt = "/AtyRange/aty/RangeFgt";
 
-    /**新闻列表Fragment*/
-    public static final String NewsListFgt = "/news/fgt/list";
-
-    /**关于Fragment*/
-    public static final String AboutFgt = "/about/fgt/fragment";
+    /**我的Activity*/
+    public static final String MyAty = "/moduleMy/aty/my";
+    /**我的Fragment*/
+    public static final String MyFgt = "/AtyMy/aty/MyFgt";
 }

@@ -1,5 +1,6 @@
 package google.architecture.sort.adapter;
 
+import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
+import google.architecture.sort.activity.GoodsListActivity;
 import com.jzhson.communal.util.ImageUtils;
 
 import java.util.List;
@@ -42,7 +44,7 @@ public class MainSortAdapter extends BaseAdapter{
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, final ViewGroup parent) {
         MyViewHolder holder;
         if (convertView==null){
             convertView= LayoutInflater.from(parent.getContext()).inflate(layoutResId,parent,false);
@@ -53,6 +55,14 @@ public class MainSortAdapter extends BaseAdapter{
         }
         holder.tv_title.setText(data.get(position).getCat_name());
         ImageUtils.loadNetImage(holder.image,data.get(position).getCat_icon());
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(parent.getContext(), GoodsListActivity.class);
+                intent.putExtra("type",data.get(position).getCat_name());
+                parent.getContext().startActivity(intent);
+            }
+        });
         return convertView;
     }
 

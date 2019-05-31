@@ -9,7 +9,7 @@ import com.jzhson.communal.base.CommonBean;
 
 import google.architecture.sort.mvp.contract.MainContract;
 import google.architecture.sort.bean.AllSortBean;
-import google.architecture.sort.viewmodel.SortViewModel;
+import google.architecture.sort.mvp.viewmodel.SortViewModel;
 
 public class MainPresenter implements MainContract.Presenter {
 

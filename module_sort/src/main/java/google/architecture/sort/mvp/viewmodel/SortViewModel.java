@@ -1,4 +1,4 @@
-package google.architecture.sort.viewmodel;
+package google.architecture.sort.mvp.viewmodel;
 
 import android.app.Application;
 import android.arch.core.util.Function;

@@ -14,7 +14,7 @@
     <item
         android:id="@+id/navigation_range"
         android:icon="@drawable/main_icon_quanzi"
-        android:title="@string/title_dashboard" />
+        android:title="@string/title_range" />
 
     <item
         android:id="@+id/navigation_my"

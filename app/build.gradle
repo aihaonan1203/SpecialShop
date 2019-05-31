@@ -1,11 +1,17 @@
-apply plugin: 'com.android.application'
+if (isModule.toBoolean()) {
+    apply plugin: 'com.android.library'
+} else {
+    apply plugin: 'com.android.application'
+}
 
 android {
     compileSdkVersion build_versions.target_sdk
     buildToolsVersion build_versions.build_tools
 
     defaultConfig {
-        applicationId "com.jzhson.specialshop"
+        if (!isModule.toBoolean()) {
+            applicationId "com.jzhson.specialshop"
+        }
         minSdkVersion build_versions.min_sdk
         targetSdkVersion build_versions.target_sdk
         versionCode 1
@@ -35,12 +41,14 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     if (isModule.toBoolean()) {
         implementation project(':lib_common')
     } else {
         implementation project(':module_sort')
+        implementation project(':module_home')
+        implementation project(':module_range')
+        implementation project(':module_my')
     }
     annotationProcessor deps.arouter.compiler
 }

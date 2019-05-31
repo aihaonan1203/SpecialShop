@@ -2,8 +2,14 @@ package com.jzhson.communal.base;
 
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.annotation.IdRes;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.jzhson.communal.util.Utils;
 
@@ -18,6 +24,25 @@ public abstract class BaseFragment extends Fragment {
         this.mActivity = (BaseActivity) context;
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        initBundle();
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view=inflater.inflate(initLayoutId(),container,false);
+        initView(view);
+        initData();
+        return view;
+    }
+
+    protected abstract void initBundle();
+    protected abstract int initLayoutId();
+    protected abstract void initView(View view);
+    protected abstract void initData();
 
     /**
      * 获取宿主Activity

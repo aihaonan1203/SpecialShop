@@ -1,10 +1,6 @@
 package google.architecture.sort;
 
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
@@ -39,26 +35,27 @@ public class FragmentSort extends BaseFragment implements MainContract.View {
     private MainPresenter presenter;
     private MainSortAdapter rightAdapter;
 
+
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void initBundle() {}
+
+    @Override
+    protected int initLayoutId() {
+        return R.layout.fragment_girls;
     }
 
-
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    protected void initView(View view) {
         ARouter.getInstance().inject(FragmentSort.this);
-        View view = inflater.inflate(R.layout.fragment_girls, container, false);
-        initView(view);
-        presenter = new MainPresenter(this, this);
-        presenter.getNetData();
-        return view;
-    }
-
-    private void initView(View view) {
         tablayout = view.findViewById(R.id.tablayout);
         rv_sort = view.findViewById(R.id.rv_sort);
+    }
+
+
+    @Override
+    protected void initData() {
+        presenter = new MainPresenter(this, this);
+        presenter.getNetData();
     }
 
     @Override
