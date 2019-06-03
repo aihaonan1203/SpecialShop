@@ -6,7 +6,7 @@ package com.jzhson.communal.base;
 
 public interface BaseView<T> {
 
-    void showToast(String s);
+    void showToast(String s,int type);
 
     void showDialog(String s);
 

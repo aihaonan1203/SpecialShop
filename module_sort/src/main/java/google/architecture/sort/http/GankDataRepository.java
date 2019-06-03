@@ -10,7 +10,7 @@ import io.reactivex.Observable;
 public class GankDataRepository {
 
     public static Observable<CommonBean<AllSortBean>>  getFuliDataRepository(String token){
-        return ApiClient.initService(GankDataService.class).getSortData(token);
+        return ApiClient.initService(SortService.class).getSortData(token);
     }
 
 

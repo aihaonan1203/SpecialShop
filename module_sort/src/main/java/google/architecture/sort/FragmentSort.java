@@ -59,8 +59,8 @@ public class FragmentSort extends BaseFragment implements MainContract.View {
     }
 
     @Override
-    public void showToast(String s) {
-        UIUtils.t(s, false, UIUtils.T_WARNING);
+    public void showToast(String s,int type) {
+        UIUtils.t(s, false, type);
     }
 
     @Override
