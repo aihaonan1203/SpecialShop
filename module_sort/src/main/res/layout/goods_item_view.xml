@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal"
+    android:background="@color/white"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="130dp"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto">
+
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/iv_image"
+        android:layout_width="wrap_content"
+        android:adjustViewBounds="true"
+        fresco:roundedCornerRadius="2dp"
+        android:layout_margin="5dp"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="垃圾袋垃圾袋垃圾袋垃圾袋垃圾袋垃圾袋垃圾袋垃圾袋垃圾袋垃圾袋垃圾袋垃圾袋垃圾袋垃圾袋"
+            android:textColor="#333333"
+            android:textSize="13sp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:lines="2"
+            android:ellipsize="end"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:id="@+id/tv_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_money"
+                android:textSize="13sp"
+                android:textColor="#F33C40"
+                />
+
+            <TextView
+                android:id="@+id/tv_money_tm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_tm_money"
+                android:textSize="13sp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_sales_num"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textSize="10sp"
+            android:text="@string/txt_sales_num"
+            android:layout_marginTop="5dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_money_quan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_quan"
+            android:background="#F33C40"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:layout_marginBottom="5dp"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>

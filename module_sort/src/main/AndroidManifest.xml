@@ -3,9 +3,8 @@
     package="google.architecture.sort">
 
     <application>
-
-        <activity android:name="google.architecture.sort.ActivitySort"/>
-
+        <activity android:name=".ActivitySort" />
+        <activity android:name=".activity.GoodsInfoActivity"></activity>
     </application>
 
 </manifest>

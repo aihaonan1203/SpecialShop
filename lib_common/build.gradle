@@ -94,6 +94,7 @@ dependencies {
     api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
 
     api 'com.jaeger.statusbarutil:library:1.5.1'
+    api 'com.youth.banner:banner:1.4.10'
 }
 
 uploadArchives {

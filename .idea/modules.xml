@@ -2,20 +2,14 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/AndroidProject.iml" filepath="$PROJECT_DIR$/.idea/AndroidProject.iml" />
+      <module fileurl="file://D:\SpecialShop\.idea\AndroidProject.iml" filepath="D:\SpecialShop\.idea\AndroidProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/SpecialShop.iml" filepath="$PROJECT_DIR$/SpecialShop.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib_common/lib_common.iml" filepath="$PROJECT_DIR$/lib_common/lib_common.iml" />
-      <module fileurl="file://$PROJECT_DIR$/lib_common/lib_common.iml" filepath="$PROJECT_DIR$/lib_common/lib_common.iml" />
-      <module fileurl="file://D:/SpecialShop/module_sort/module_classify.iml" filepath="D:/SpecialShop/module_sort/module_classify.iml" />
-      <module fileurl="file://$PROJECT_DIR$/module_home/module_home.iml" filepath="$PROJECT_DIR$/module_home/module_home.iml" />
+      <module fileurl="file://D:\SpecialShop\module_sort\module_classify.iml" filepath="D:\SpecialShop\module_sort\module_classify.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_home/module_home.iml" filepath="$PROJECT_DIR$/module_home/module_home.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_my/module_my.iml" filepath="$PROJECT_DIR$/module_my/module_my.iml" />
-      <module fileurl="file://$PROJECT_DIR$/module_my/module_my.iml" filepath="$PROJECT_DIR$/module_my/module_my.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_range/module_range.iml" filepath="$PROJECT_DIR$/module_range/module_range.iml" />
-      <module fileurl="file://$PROJECT_DIR$/module_range/module_range.iml" filepath="$PROJECT_DIR$/module_range/module_range.iml" />
-      <module fileurl="file://$PROJECT_DIR$/module_sort/module_sort.iml" filepath="$PROJECT_DIR$/module_sort/module_sort.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_sort/module_sort.iml" filepath="$PROJECT_DIR$/module_sort/module_sort.iml" />
     </modules>
   </component>

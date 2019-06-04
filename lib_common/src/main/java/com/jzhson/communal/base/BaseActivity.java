@@ -1,12 +1,19 @@
 package com.jzhson.communal.base;
 
+import android.app.Activity;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.Window;
+
 import com.jzhson.communal.util.Utils;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
 import google.architecture.common.R;
 
@@ -150,6 +157,28 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     public void finish() {
         super.finish();
-        this.overridePendingTransition(R.anim.activity_down_in, R.anim.activity_down_out);
+        if (isShowAnimation()) {
+            this.overridePendingTransition(R.anim.activity_down_in, R.anim.activity_down_out);
+        }
     }
+
+    private boolean showAnimation=true;
+
+    public boolean isShowAnimation() {
+        return showAnimation;
+    }
+
+    public void setShowAnimation(boolean showAnimation) {
+        this.showAnimation = showAnimation;
+    }
+
+    public void setAndroidNativeLightStatusBar(Activity activity, boolean dark) {
+        View decor = activity.getWindow().getDecorView();
+        if (dark) {
+            decor.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        } else {
+            decor.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+        }
+    }
+
 }

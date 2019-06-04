@@ -60,5 +60,6 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     api project(':lib_common')
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     annotationProcessor deps.arouter.compiler
 }
