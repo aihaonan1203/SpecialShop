@@ -12,7 +12,10 @@ import android.widget.TextView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.jaeger.library.StatusBarUtil;
 import com.jzhson.communal.base.BaseActivity;
+import com.jzhson.communal.base.MessageWrap;
 import com.jzhson.communal.util.UIUtils;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.List;
 
@@ -87,7 +90,8 @@ public class GoodsListActivity extends BaseActivity implements GoodsListContract
             goodsAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
                 @Override
                 public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                    startActivity(new Intent(GoodsListActivity.this,GoodsInfoActivity.class));
+                    EventBus.getDefault().postSticky(new MessageWrap<>(GoodsInfoActivity.class.getName(),goodsAdapter.getData().get(position)));
+                    startActivity( new Intent(GoodsListActivity.this, GoodsInfoActivity.class));
                 }
             });
         }else {

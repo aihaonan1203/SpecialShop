@@ -7,10 +7,14 @@ import android.support.annotation.IdRes;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 
 import com.jzhson.communal.util.Utils;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.EventBusException;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -37,12 +41,21 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ViewManager.getInstance().addActivity(this);
+        try {
+            EventBus.getDefault().register(this);
+        }catch (EventBusException e){
+            Log.e("onCreate: ",BaseActivity.class.getName()+":EventBus未注册" );
+        }
+
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         ViewManager.getInstance().finishActivity(this);
+        if (EventBus.getDefault().isRegistered(this)){
+            EventBus.getDefault().unregister(this);
+        }
     }
 
     @Override

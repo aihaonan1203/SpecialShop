@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
@@ -19,63 +20,118 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="#f4f4f4"
                 android:orientation="vertical">
 
-                <com.youth.banner.Banner
-                    android:id="@+id/banner"
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp" />
+                <!--<com.youth.banner.Banner-->
+                    <!--android:id="@+id/banner"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="350dp" />-->
 
-                <TextView
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/iv_image"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:background="#fff000" />
+                    android:background="@color/white"
+                    android:adjustViewBounds="true"
+                    android:layout_height="wrap_content" />
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:background="#fff000" />
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@color/white"
+                    >
 
-                <TextView
+                    <TextView
+                        android:id="@+id/tv_money1"
+                        android:padding="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textSize="16sp"
+                        android:textColor="#F33C40"
+                        android:textStyle="bold"
+                        android:background="@color/white"
+                        android:gravity="center_vertical"
+                        tools:ignore="RtlSymmetry" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingStart="10dp"
+                        android:paddingLeft="10dp"
+                        android:background="@color/white"
+                        tools:ignore="RtlSymmetry">
+
+                        <TextView
+                            android:id="@+id/tv_money_tm"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/txt_tm_money"
+                            android:textSize="12sp"
+                            tools:ignore="RtlSymmetry" />
+
+                        <TextView
+                            android:id="@+id/tv_sales_num"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/txt_sales_num"
+                            android:layout_marginEnd="10dp"
+                            tools:ignore="RtlSymmetry"
+                            android:textSize="12sp"
+                            android:layout_marginRight="10dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:src="@drawable/icon_taobao"
+                            android:layout_marginTop="3dp"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:textColor="#333333"
+                            android:lines="2"
+                            android:background="@color/white"
+                            android:ellipsize="end" />
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:textColor="#333333"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="查看宝贝详情:"
+                        />
+
+                </LinearLayout>
+
+                <WebView
+                    android:id="@+id/mWebview"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:background="#fff000" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:background="#fff000" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:background="#fff000" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:background="#fff000" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:background="#fff000" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:background="#fff000" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:background="#fff000" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:background="#fff000" />
-
+                    android:layout_height="wrap_content"
+                    tools:ignore="WebViewLayout" />
 
             </LinearLayout>
 
@@ -89,4 +145,46 @@
         layout="@layout/main_title_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_vertical"
+        android:padding="5dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/icon_youhuiquan"
+                android:text="10元优惠券"
+                android:gravity="center"
+                tools:ignore="RtlCompat" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_quan"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:text="领取优惠券"
+            android:gravity="center"
+            android:textStyle="bold"
+            />
+
+    </LinearLayout>
+
 </RelativeLayout>

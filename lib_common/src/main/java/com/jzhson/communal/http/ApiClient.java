@@ -14,6 +14,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient{
 
+    public static BaseUrlManagerInterceptor baseUrlManagerInterceptor;
+
     public static <T> T initService(Class<T> clazz) {
         return getRetrofitInstance().create(clazz);
     }
@@ -44,9 +46,8 @@ public class ApiClient{
                 if (okHttpClientInstance == null) {
                     OkHttpClient.Builder builder = new OkHttpClient().newBuilder();
                     if (BuildConfig.DEBUG) {
-                        HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
-                        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-                        builder.addInterceptor(httpLoggingInterceptor);
+                        baseUrlManagerInterceptor = new BaseUrlManagerInterceptor();
+                        builder.addInterceptor(baseUrlManagerInterceptor);
 //                      builder.addNetworkInterceptor(new StethoInterceptor());
 //                      BuildConfig.STETHO.addNetworkInterceptor(builder);
                     }

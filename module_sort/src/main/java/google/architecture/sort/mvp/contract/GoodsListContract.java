@@ -20,7 +20,7 @@ public interface GoodsListContract {
         void initList(List<GoodsBean> data);
     }
 
-    interface Presenter extends BasePresenter {
+    interface Presenter {
 
     }
 }
