@@ -66,6 +66,11 @@ public abstract class BaseFragment extends Fragment {
 
     }
 
+    protected void addNewFragment(BaseFragment fragment, @IdRes int frameId) {
+        Utils.checkNotNull(fragment);
+        getHoldingActivity().addNewFragment(fragment,frameId);
+    }
+
 
     /**
      * 替换fragment

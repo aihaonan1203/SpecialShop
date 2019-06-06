@@ -28,7 +28,7 @@ public class GoodsListPresenter implements GoodsListContract.Presenter {
     }
 
 
-    public void getData(String type,int page) {
+    public void getData(String type,int page,int state) {
         ApiClient.initService(SortService.class).search_goods(BaseApplication.getIns().getToken(),type,page)
                 .compose(RxHelper.applySchedulers())
                 .subscribe(new Observer<CommonBean<GoodsBean>>() {
@@ -40,7 +40,7 @@ public class GoodsListPresenter implements GoodsListContract.Presenter {
                     @Override
                     public void onNext(CommonBean<GoodsBean> value) {
                         List<GoodsBean> data = value.getData();
-                        view.initList(data);
+                        view.initList(data,state);
                         view.showToast(value.getMsg(), UIUtils.T_SUCCESS);
                     }
 

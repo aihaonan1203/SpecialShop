@@ -1,51 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_width="match_parent"
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:background="#f4f4f4"
+    android:id="@+id/llyt_content"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <q.rorbin.verticaltablayout.VerticalTabLayout
-        android:id="@+id/tablayout"
-        android:layout_width="80dp"
-        android:layout_height="match_parent"
-        android:background="#FFFFFF"
-        app:indicator_color="#F4904F"
-        app:indicator_gravity="left"
-        app:indicator_width="3dp"
-        app:tab_height="50dp"
-        app:tab_mode="scrollable" />
-
-    <com.jzhson.communal.widget.ReboundScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:overScrollMode="never"
-        android:scrollbars="none"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/bg_search"
         >
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
             >
 
-            <com.jzhson.communal.widget.MyGridViewNoScroll
-                android:id="@+id/rv_sort"
-                android:numColumns="3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="10dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/sort_yuanjiao_white_5dp"
-                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="商品分类"
+                android:textColor="@color/white"
+                android:layout_marginStart="10dp"
+                android:drawableStart="@drawable/icon_goods"
+                android:layout_marginEnd="10dp"
+                android:gravity="center_vertical"
+                android:drawablePadding="10dp"
+                tools:ignore="RtlCompat" />
+
+            <TextView
+                android:id="@+id/tv_search"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="输入关键字查相应商品"
+                android:background="@drawable/bg_search_et"
+                android:layout_marginStart="10dp"
+                android:drawableStart="@drawable/icon_search"
+                android:layout_marginEnd="10dp"
+                android:gravity="center_vertical"
+                android:drawablePadding="10dp"
+                tools:ignore="RtlCompat" />
 
         </LinearLayout>
 
 
-    </com.jzhson.communal.widget.ReboundScrollView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        >
+
+        <q.rorbin.verticaltablayout.VerticalTabLayout
+            android:id="@+id/tablayout"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            app:indicator_color="#F4904F"
+            app:indicator_gravity="left"
+            app:indicator_width="3dp"
+            app:tab_height="50dp"
+            app:tab_mode="scrollable" />
+
+        <com.jzhson.communal.widget.ReboundScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:overScrollMode="never"
+            android:scrollbars="none"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+
+                <com.jzhson.communal.widget.MyGridViewNoScroll
+                    android:id="@+id/rv_sort"
+                    android:numColumns="3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/sort_yuanjiao_white_5dp"
+                    />
+
+            </LinearLayout>
+
+
+        </com.jzhson.communal.widget.ReboundScrollView>
+
+    </LinearLayout>
+
+
 
 
 

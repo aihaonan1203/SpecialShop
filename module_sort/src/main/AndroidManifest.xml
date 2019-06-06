@@ -4,7 +4,9 @@
 
     <application>
         <activity android:name=".ActivitySort" />
-        <activity android:name=".activity.GoodsInfoActivity"></activity>
+        <activity android:name=".activity.GoodsInfoActivity"/>
+        <activity android:name=".activity.GoodsListActivity"/>
+        <activity android:name=".activity.search.SearchActivity"/>
     </application>
 
 </manifest>

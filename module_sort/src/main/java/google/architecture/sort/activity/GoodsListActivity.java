@@ -31,6 +31,7 @@ public class GoodsListActivity extends BaseActivity implements GoodsListContract
     private String type;
     private GoodsListPresenter presenter;
     private GoodsAdapter goodsAdapter;
+    private int page=1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,7 @@ public class GoodsListActivity extends BaseActivity implements GoodsListContract
         initToolbar();
         initView();
         presenter=new GoodsListPresenter(this);
-        presenter.getData(type,1);
+        presenter.getData(type, page,0);
     }
 
     private void initToolbar() {
@@ -79,11 +80,11 @@ public class GoodsListActivity extends BaseActivity implements GoodsListContract
     }
 
     @Override
-    public void initList(List<GoodsBean> data) {
-        initAdapter(data);
+    public void initList(List<GoodsBean> data,int state) {
+        initAdapter(data,state);
     }
 
-    private void initAdapter(List<GoodsBean> data) {
+    private void initAdapter(List<GoodsBean> data,int state) {
         if (goodsAdapter==null){
             goodsAdapter = new GoodsAdapter(data,this);
             mRecyclerView.setAdapter(goodsAdapter);
@@ -94,8 +95,20 @@ public class GoodsListActivity extends BaseActivity implements GoodsListContract
                     startActivity( new Intent(GoodsListActivity.this, GoodsInfoActivity.class));
                 }
             });
+            goodsAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
+                @Override
+                public void onLoadMoreRequested() {
+                    page++;
+                    presenter.getData(type, page,1);
+                }
+            });
         }else {
-            goodsAdapter.setNewData(data);
+            if (data.size()!=0){
+                goodsAdapter.addData(data);
+                goodsAdapter.loadMoreComplete();
+            }else {
+                goodsAdapter.loadMoreEnd();
+            }
         }
     }
 }

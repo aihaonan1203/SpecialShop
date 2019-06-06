@@ -1,6 +1,7 @@
 package google.architecture.sort;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.jzhson.communal.base.ARouterPath;
@@ -17,7 +18,13 @@ public class ActivitySort extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_girls);
-        addFragment(new FragmentSort(),R.id.framelayout);
+        findViewById(R.id.framelayout).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addFragment(new FragmentSort(),R.id.framelayout);
+            }
+        });
+
     }
 
     @Override

@@ -7,4 +7,7 @@
     <string name="txt_tm_money">天猫价:￥%s</string>
     <string name="txt_sales_num">已售:%s</string>
     <string name="txt_quan">%s元券</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

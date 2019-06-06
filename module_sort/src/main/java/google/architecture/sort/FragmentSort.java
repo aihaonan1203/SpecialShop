@@ -1,9 +1,12 @@
 package google.architecture.sort;
 
+import android.content.Intent;
 import android.view.View;
+import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.jaeger.library.StatusBarUtil;
 import com.jzhson.communal.base.ARouterPath;
 import com.jzhson.communal.base.BaseFragment;
 import com.jzhson.communal.base.CommonBean;
@@ -12,6 +15,7 @@ import com.jzhson.communal.widget.MyGridViewNoScroll;
 
 import java.util.List;
 
+import google.architecture.sort.activity.search.SearchActivity;
 import google.architecture.sort.adapter.MainSortAdapter;
 import google.architecture.sort.bean.AllSortBean;
 import google.architecture.sort.mvp.contract.MainContract;
@@ -26,7 +30,7 @@ import q.rorbin.verticaltablayout.widget.TabView;
  * @Desc FragmentGirls
  */
 @Route(path = ARouterPath.ClassifyFgt)
-public class FragmentSort extends BaseFragment implements MainContract.View {
+public class FragmentSort extends BaseFragment implements MainContract.View,View.OnClickListener {
 
     private VerticalTabLayout tablayout;
     private MyGridViewNoScroll rv_sort;
@@ -34,10 +38,12 @@ public class FragmentSort extends BaseFragment implements MainContract.View {
 
     private MainPresenter presenter;
     private MainSortAdapter rightAdapter;
+    private TextView tv_search;
 
 
     @Override
-    protected void initBundle() {}
+    protected void initBundle() {
+    }
 
     @Override
     protected int initLayoutId() {
@@ -46,9 +52,12 @@ public class FragmentSort extends BaseFragment implements MainContract.View {
 
     @Override
     protected void initView(View view) {
+        StatusBarUtil.setTranslucentForImageView(getActivity(), 0, view.findViewById(R.id.view));
         ARouter.getInstance().inject(FragmentSort.this);
+        tv_search=view.findViewById(R.id.tv_search);
         tablayout = view.findViewById(R.id.tablayout);
         rv_sort = view.findViewById(R.id.rv_sort);
+        tv_search.setOnClickListener(this);
     }
 
 
@@ -59,7 +68,7 @@ public class FragmentSort extends BaseFragment implements MainContract.View {
     }
 
     @Override
-    public void showToast(String s,int type) {
+    public void showToast(String s, int type) {
         UIUtils.t(s, false, type);
     }
 
@@ -99,7 +108,7 @@ public class FragmentSort extends BaseFragment implements MainContract.View {
                 String cat_name = allSortBean.getCat_name();
                 return new ITabView.TabTitle.Builder()
                         .setContent(cat_name)
-                        .setTextColor(0xffF4904F,getResources().getColor(R.color.txt_color))
+                        .setTextColor(0xffF4904F, getResources().getColor(R.color.txt_color))
                         .build();
             }
 
@@ -129,12 +138,20 @@ public class FragmentSort extends BaseFragment implements MainContract.View {
 
     @Override
     public void initRightAdapter(List<AllSortBean.CateBean> data) {
-        if (rightAdapter==null){
-            rightAdapter=new MainSortAdapter(R.layout.sort_main_right_item,data);
+        if (rightAdapter == null) {
+            rightAdapter = new MainSortAdapter(R.layout.sort_main_right_item, data);
             rv_sort.setAdapter(rightAdapter);
-        }else {
+        } else {
             rightAdapter.setNewData(data);
         }
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.tv_search:
+                startActivity(new Intent(getActivity(), SearchActivity.class));
+                break;
+        }
+    }
 }

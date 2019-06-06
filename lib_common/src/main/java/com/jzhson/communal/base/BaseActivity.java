@@ -101,6 +101,15 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     }
 
+    protected void addNewFragment(BaseFragment fragment, @IdRes int frameId) {
+        Utils.checkNotNull(fragment);
+        getSupportFragmentManager().beginTransaction()
+                .add(frameId, fragment, fragment.getClass().getSimpleName())
+                .addToBackStack(fragment.getClass().getSimpleName())
+                .commitAllowingStateLoss();
+
+    }
+
 
     /**
      * 替换fragment
