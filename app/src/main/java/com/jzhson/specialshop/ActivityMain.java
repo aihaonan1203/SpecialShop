@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.jaeger.library.StatusBarUtil;
 import com.jzhson.communal.base.ARouterPath;
 import com.jzhson.communal.base.BaseActivity;
 import com.jzhson.communal.base.BaseFragment;
@@ -54,6 +55,7 @@ public class ActivityMain extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        StatusBarUtil.setTranslucentForImageView(this, 0, findViewById(R.id.view));
         mainBinding = DataBindingUtil.setContentView(ActivityMain.this, R.layout.activity_main);
         mainBinding.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
         mPager = mainBinding.containerPager;

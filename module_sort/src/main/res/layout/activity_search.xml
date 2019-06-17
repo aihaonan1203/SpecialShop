@@ -2,21 +2,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:background="@color/white"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
         android:background="@drawable/bg_search"
-        >
+        android:gravity="center"
+        android:orientation="vertical">
 
         <View
             android:id="@+id/view"
             android:layout_width="match_parent"
-            android:layout_height="1dp"/>
+            android:layout_height="1dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -27,19 +26,19 @@
             <EditText
                 android:id="@+id/et_search"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:hint="输入关键字查相应商品"
-                android:background="@drawable/bg_search_et"
-                android:layout_marginStart="10dp"
-                android:drawableStart="@drawable/icon_search"
-                android:drawableEnd="@drawable/icon_take_photo"
                 android:layout_marginEnd="10dp"
-                android:imeOptions="actionSearch"
-                android:singleLine="true"
-                android:paddingEnd="10dp"
-                android:gravity="center_vertical"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_search_et"
+                android:drawableEnd="@drawable/icon_take_photo"
                 android:drawablePadding="10dp"
+                android:drawableStart="@drawable/icon_search"
+                android:gravity="center_vertical"
+                android:hint="输入关键字查相应商品"
+                android:imeOptions="actionSearch"
+                android:paddingEnd="10dp"
+                android:singleLine="true"
                 android:textSize="14sp"
                 tools:ignore="RtlCompat,RtlSymmetry" />
 
@@ -47,16 +46,78 @@
                 android:id="@+id/tv_cancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="取消"
-                android:textColor="@color/white"
-                android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                />
+                android:layout_marginStart="10dp"
+                android:text="取消"
+                android:textColor="@color/white" />
 
         </LinearLayout>
 
 
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ls_linelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="10dp"
+        android:layout_marginTop="20dp"
+        android:paddingEnd="20dp"
+        tools:ignore="RtlCompat,RtlSymmetry">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="历史搜索:"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/btn_clear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="清空"
+                android:background="@drawable/sort_border_circle_2dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+
+        <com.jzhson.communal.widget.FlowLayout
+            android:id="@+id/ls_flowLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp" />
 
     </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="热门搜索:"
+        android:layout_marginStart="10dp"
+        android:textSize="14sp"
+        android:layout_marginLeft="10dp" />
+
+    <com.jzhson.communal.widget.FlowLayout
+        android:id="@+id/rm_flowLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp" />
+
 
 </LinearLayout>

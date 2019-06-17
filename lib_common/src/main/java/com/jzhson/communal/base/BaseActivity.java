@@ -19,6 +19,7 @@ import org.greenrobot.eventbus.EventBusException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
+import butterknife.ButterKnife;
 import google.architecture.common.R;
 
 /**
@@ -46,7 +47,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         }catch (EventBusException e){
             Log.e("onCreate: ",BaseActivity.class.getName()+":EventBus未注册" );
         }
-
     }
 
     @Override

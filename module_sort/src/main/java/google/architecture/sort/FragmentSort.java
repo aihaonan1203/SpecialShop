@@ -52,7 +52,8 @@ public class FragmentSort extends BaseFragment implements MainContract.View,View
 
     @Override
     protected void initView(View view) {
-        StatusBarUtil.setTranslucentForImageView(getActivity(), 0, view.findViewById(R.id.view));
+//        StatusBarUtil.setTranslucentForImageView(getActivity(), 0, view.findViewById(R.id.view));
+        StatusBarUtil.setTranslucentForImageView(getActivity(), 0,null);
         ARouter.getInstance().inject(FragmentSort.this);
         tv_search=view.findViewById(R.id.tv_search);
         tablayout = view.findViewById(R.id.tablayout);
@@ -148,10 +149,8 @@ public class FragmentSort extends BaseFragment implements MainContract.View,View
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.tv_search:
-                startActivity(new Intent(getActivity(), SearchActivity.class));
-                break;
+        if (v.getId()==R.id.tv_search){
+            startActivity(new Intent(getActivity(), SearchActivity.class));
         }
     }
 }
