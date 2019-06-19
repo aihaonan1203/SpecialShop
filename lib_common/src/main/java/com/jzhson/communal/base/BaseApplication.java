@@ -48,7 +48,7 @@ public class BaseApplication extends Application {
         for (ApplicationDelegate delegate : mAppDelegateList) {
             delegate.onCreate();
         }
-
+        CrashHandler.getInstance().init();
         LogUtils.getLogConfig()
                 .configAllowLog(true)
                 .configTagPrefix("danxx")

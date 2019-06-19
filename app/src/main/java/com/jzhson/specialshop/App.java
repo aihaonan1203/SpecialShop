@@ -3,6 +3,7 @@ package com.jzhson.specialshop;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.jzhson.communal.base.BaseApplication;
+import com.jzhson.communal.base.CrashHandler;
 import com.jzhson.communal.util.Utils;
 
 /**
