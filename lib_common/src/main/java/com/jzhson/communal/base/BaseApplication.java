@@ -1,7 +1,10 @@
 package com.jzhson.communal.base;
 
 import android.app.Application;
+import android.util.Log;
 
+import com.alibaba.sdk.android.BaseAlibabaSDK;
+import com.alibaba.sdk.android.callback.InitResultCallback;
 import com.apkfuns.logutils.LogUtils;
 import com.jzhson.communal.util.Utils;
 
@@ -18,6 +21,7 @@ import java.util.List;
 public class BaseApplication extends Application {
 
     public static final String ROOT_PACKAGE = "com.guiying.module";
+    private static final String TAG = "BaseApplication";
 
     private static BaseApplication sInstance;
 
@@ -54,7 +58,17 @@ public class BaseApplication extends Application {
                 .configTagPrefix("danxx")
                 .configShowBorders(true)
                 .configFormatTag("%d{HH:mm:ss:SSS} %t %c{-5}");
+        BaseAlibabaSDK.asyncInit(this, new InitResultCallback() {
+            @Override
+            public void onSuccess() {
+                Log.d(TAG,"BaseAlibabaSDK init successed");
+            }
 
+            @Override
+            public void onFailure(int code, String msg) {
+                Log.e(TAG,"BaseAlibabaSDK init failed");
+            }
+        });
     }
 
     @Override

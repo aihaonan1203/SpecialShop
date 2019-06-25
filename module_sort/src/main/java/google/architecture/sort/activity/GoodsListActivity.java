@@ -9,6 +9,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
+import com.alibaba.sdk.android.AppLinkService;
+import com.alibaba.sdk.android.BaseAlibabaSDK;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.jaeger.library.StatusBarUtil;
 import com.jzhson.communal.base.BaseActivity;
@@ -17,6 +19,7 @@ import com.jzhson.communal.util.UIUtils;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.util.HashMap;
 import java.util.List;
 
 import google.architecture.sort.R;

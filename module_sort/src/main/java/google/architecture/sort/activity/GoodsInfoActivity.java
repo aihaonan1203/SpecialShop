@@ -8,11 +8,15 @@ import android.support.v7.widget.Toolbar;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.RelativeSizeSpan;
+import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.EditText;
 import android.widget.TextView;
 
+import com.alibaba.sdk.android.AppLinkService;
+import com.alibaba.sdk.android.BaseAlibabaSDK;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.jaeger.library.StatusBarUtil;
 import com.jzhson.communal.base.BaseActivity;
@@ -43,7 +47,8 @@ public class GoodsInfoActivity extends BaseActivity implements MyScrollView.Tran
     private SimpleDraweeView simpleDraweeView;
     private TextView tv_money_tm;
     private TextView tv_sales_num;
-    private TextView tv_title;
+    private TextView tv_youhui;
+    private EditText tv_title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +70,7 @@ public class GoodsInfoActivity extends BaseActivity implements MyScrollView.Tran
         myScrollView.setTranslucentListener(this);
         tv_money_tm = findViewById(R.id.tv_money_tm);
         tv_sales_num = findViewById(R.id.tv_sales_num);
+        tv_youhui = findViewById(R.id.tv_youhui);
         tv_title = findViewById(R.id.tv_title);
 
         SpannableString spannableString = new SpannableString("券后价￥" + String.valueOf(this.bean.getCoupon_price()));
@@ -75,6 +81,14 @@ public class GoodsInfoActivity extends BaseActivity implements MyScrollView.Tran
         tv_money_tm.getPaint().setAntiAlias(true);//抗锯齿
         tv_sales_num.setText(String.valueOf(getResources().getString(R.string.txt_sales_num,String.valueOf(bean.getSales_num()))));
         tv_title.setText(bean.getTitle());
+        tv_youhui.setText(String.valueOf(bean.getCoupon_money()+"元券"));
+        findViewById(R.id.tv_get).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AppLinkService link = BaseAlibabaSDK.getService(AppLinkService.class);
+                link.jumpDetail(GoodsInfoActivity.this,bean.getCoupon_link());
+            }
+        });
     }
 
     private void initToolbar() {
@@ -114,22 +128,6 @@ public class GoodsInfoActivity extends BaseActivity implements MyScrollView.Tran
 
     @Override
     public void onDataChange(GoodsInfoBean bean) {
-//        banner.setImageLoader(new ImageLoader() {
-//            @Override
-//            public void displayImage(Context context, Object path, ImageView imageView) {
-//                imageView.setImageURI(Uri.parse((String) path));
-//            }
-//
-//            @Override
-//            public ImageView createImageView(Context context) {
-//                return new SimpleDraweeView(context);
-//            }
-//        });
-//        //设置banner样式
-//        banner.setBannerStyle(BannerConfig.NUM_INDICATOR);
-//        banner.setImages();
-//        banner.setDelayTime(5000);
-//        banner.start();
         ImageUtils.loadNetImage(simpleDraweeView, this.bean.getThumb());
         WebSettings settings = mWebview.getSettings();
         settings.setLoadWithOverviewMode(true);
